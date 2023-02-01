@@ -1,0 +1,48 @@
+mysql> use sse;
+Database changed
+mysql> create table faculty(facname varchar(45),facid int(8),facphone int(8));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facname  | varchar(45) | YES  |     | NULL    |       |
+| facid    | int(8)      | YES  |     | NULL    |       |
+| facphone | int(8)      | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> insert into faculty values("amar",1,8765);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into faculty values("raghu",2,8978);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into faculty values("balaji",3,9865);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select*from faculty;
++---------+-------+----------+
+| facname | facid | facphone |
++---------+-------+----------+
+| amar    |     1 |     8765 |
+| raghu   |     2 |     8978 |
+| balaji  |     3 |     9865 |
++---------+-------+----------+
+3 rows in set (0.02 sec)
+
+mysql> alter table faculty add facaddress varchar(89);
+Query OK, 3 rows affected (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| facname    | varchar(45) | YES  |     | NULL    |       |
+| facid      | int(8)      | YES  |     | NULL    |       |
+| facphone   | int(8)      | YES  |     | NULL    |       |
+| facaddress | varchar(89) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
