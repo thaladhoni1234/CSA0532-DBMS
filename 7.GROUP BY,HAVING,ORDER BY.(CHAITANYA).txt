@@ -1,0 +1,72 @@
+mysql> create database marks;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use marks;
+Database changed
+mysql> create table marks(name varchar(20),subject varchar(22),marks int(15),grade varchar(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc marks;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(20) | YES  |     | NULL    |       |
+| subject | varchar(22) | YES  |     | NULL    |       |
+| marks   | int(15)     | YES  |     | NULL    |       |
+| grade   | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> insert into marks values("chaitanya","physics",94,"a");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into marks values("rakesh","chemistry",87,"b");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into marks values("chandu","telugu",99,"c");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into marks values("sudheer","biology",100,"d");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from marks;
++-----------+-----------+-------+-------+
+| name      | subject   | marks | grade |
++-----------+-----------+-------+-------+
+| chaitanya | physics   |    94 | a     |
+| rakesh    | chemistry |    87 | b     |
+| chandu    | telugu    |    99 | c     |
+| sudheer   | biology   |   100 | d     |
++-----------+-----------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from marks group by grade;
++-----------+-----------+-------+-------+
+| name      | subject   | marks | grade |
++-----------+-----------+-------+-------+
+| chaitanya | physics   |    94 | a     |
+| rakesh    | chemistry |    87 | b     |
+| chandu    | telugu    |    99 | c     |
+| sudheer   | biology   |   100 | d     |
++-----------+-----------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from marks having marks>95;
++---------+---------+-------+-------+
+| name    | subject | marks | grade |
++---------+---------+-------+-------+
+| chandu  | telugu  |    99 | c     |
+| sudheer | biology |   100 | d     |
++---------+---------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from marks order by name;
++-----------+-----------+-------+-------+
+| name      | subject   | marks | grade |
++-----------+-----------+-------+-------+
+| chaitanya | physics   |    94 | a     |
+| chandu    | telugu    |    99 | c     |
+| rakesh    | chemistry |    87 | b     |
+| sudheer   | biology   |   100 | d     |
++-----------+-----------+-------+-------+
+4 rows in set (0.00 sec)
