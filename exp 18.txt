@@ -1,0 +1,131 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 57
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use sse;
+Database changed
+mysql> desc marks;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| regno | int(3)      | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| marks | int(10)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into marks values(1283,"balaji",100);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into marks values(0546,"moni",99);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into marks values(1281,"geethika",100);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into marks values(1291,"raghu",98);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into marks values(1427,"thosh",99);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into marks values(1280,"goutham",98);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into marks values(1245,"amar",98);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from marks;
++-------+----------+-------+
+| regno | name     | marks |
++-------+----------+-------+
+|  1283 | balaji   |   100 |
+|   546 | moni     |    99 |
+|  1281 | geethika |   100 |
+|  1291 | raghu    |    98 |
+|  1427 | thosh    |    99 |
+|  1280 | goutham  |    98 |
+|  1245 | amar     |    98 |
++-------+----------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> insert into marks values(1250,"chaitu",99);
+Query OK, 1 row affected (0.01 sec) 
+
+mysql> select*from marks;
++-------+----------+-------+
+| regno | name     | marks |
++-------+----------+-------+
+|  1283 | balaji   |   100 |
+|   546 | moni     |    99 |
+|  1281 | geethika |   100 |
+|  1291 | raghu    |    98 |
+|  1427 | thosh    |    99 |
+|  1280 | goutham  |    98 |
+|  1245 | amar     |    98 |
+|  1250 | chaitu   |    99 |
++-------+----------+-------+
+8 rows in set (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> delete from marks where marks=98;
+Query OK, 3 rows affected (0.00 sec)
+
+mysql> select*from marks;
++-------+----------+-------+
+| regno | name     | marks |
++-------+----------+-------+
+|  1283 | balaji   |   100 |
+|   546 | moni     |    99 |
+|  1281 | geethika |   100 |
+|  1427 | thosh    |    99 |
+|  1250 | chaitu   |    99 |
++-------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select*from marks;
++-------+----------+-------+
+| regno | name     | marks |
++-------+----------+-------+
+|  1283 | balaji   |   100 |
+|   546 | moni     |    99 |
+|  1281 | geethika |   100 |
+|  1291 | raghu    |    98 |
+|  1427 | thosh    |    99 |
+|  1280 | goutham  |    98 |
+|  1245 | amar     |    98 |
+|  1250 | chaitu   |    99 |
++-------+----------+-------+
+8 rows in set (0.00 sec)
+
+mysql>
